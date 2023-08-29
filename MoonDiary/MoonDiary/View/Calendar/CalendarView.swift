@@ -16,6 +16,8 @@ struct CalendarView: View {
     @Binding var moveToDisplayView: Bool
     @Binding var showPopupView: Bool
     
+    @State private var showTrackerView = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -32,12 +34,13 @@ struct CalendarView: View {
                 selectedDate: $selectedDate,
                 moonsData: $moonsData,
                 showPopupView: $showPopupView,
+                showTrackerView: $showTrackerView,
                 currnetMode: $currentMode
             )
                 .frame(maxWidth: 361)
                 .foregroundColor(.labelColor)
             
-                .onChange(of: selectedDate) { _ in
+                .onChange(of: showTrackerView) { _ in
                     currentPage = .tracker
                 }
             

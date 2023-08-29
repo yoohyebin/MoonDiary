@@ -13,11 +13,11 @@ struct CustomCalendarView: View {
     @Binding var selectedDate: Date
     @Binding var moonsData: [Date: Double]
     @Binding var showPopupView: Bool
+    @Binding var showTrackerView: Bool
     @Binding var currnetMode: Bool
     
     private var calendar: Calendar {
         var calendar = Calendar.current
-//        calendar.timeZone = TimeZone.autoupdatingCurrent
         return calendar
     }
     
@@ -76,6 +76,7 @@ struct CustomCalendarView: View {
                                     Button(
                                         action: {
                                             selectedDate = date
+                                            showTrackerView = true
                                         }, label: {
                                             CalendarDateButtonView(
                                                 date: date,
@@ -107,46 +108,5 @@ struct CustomCalendarView: View {
         dateComponents.day! += ((week * 7) + day - calendar.component(.weekday, from: firstDayOfMonth) + 1)
 
         return calendar.date(from: dateComponents)!.withTimeZone(TimeZone.current)
-    }
-}
-
-struct CalendarDateButtonView: View {
-    let date: Date
-    let phase: Double?
-    let currentMode: Bool
-    let cellHeight: CGFloat
-    
-    var body: some View {
-        VStack(alignment: .center, spacing: 8) {
-            ZStack {
-                if date.date() == Date().date() {
-                    Circle()
-                        .frame(maxWidth: 40, maxHeight: 40)
-                        .foregroundColor(.labelColor)
-                    
-                    Text(date.dateToDay())
-                        .foregroundColor(currentMode ? .backgroundColorDark : .backgroundColor )
-                        .font(.system(size: 13))
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                }else {
-                    Text(date.dateToDay())
-                        .foregroundColor(.labelColor )
-                        .font(.system(size: 13))
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                }
-            }
-            if let phase = phase {
-                MoonView(phase: phase)
-                    .frame(width: 23, height: 23)
-            }else {
-                Spacer()
-                    .frame(width: 23, height: 23)
-            }
-        }
-        .foregroundColor(.labelColor)
-        .frame(maxWidth: .infinity ,maxHeight: .infinity)
-        .frame(height: cellHeight)
     }
 }
