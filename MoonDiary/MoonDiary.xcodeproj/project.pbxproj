@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E4533DC2A972C4300661D8B /* YearMonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4533DB2A972C4300661D8B /* YearMonthPicker.swift */; };
 		0E4533E32A97478000661D8B /* CustomCalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4533E22A97478000661D8B /* CustomCalendarHeader.swift */; };
-		0E4533E72A9747CC00661D8B /* MoonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4533E62A9747CC00661D8B /* MoonTest.swift */; };
 		0E4534052A9761B500661D8B /* MoonTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4534042A9761B500661D8B /* MoonTestView.swift */; };
 		0E4534252A9B88F800661D8B /* MoonDragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4534242A9B88F800661D8B /* MoonDragView.swift */; };
 		0E4534272A9B890700661D8B /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4534262A9B890700661D8B /* DragState.swift */; };
@@ -18,7 +17,6 @@
 		0E45342F2A9B9E0600661D8B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0E45342E2A9B9E0600661D8B /* RealmSwift */; };
 		0E4534312A9B9E2C00661D8B /* MoonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4534302A9B9E2C00661D8B /* MoonData.swift */; };
 		0E4534332A9BAA0800661D8B /* MoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4534322A9BAA0800661D8B /* MoonView.swift */; };
-		0E91B6B72A8E778300E7BEE7 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E91B6B62A8E778300E7BEE7 /* test.swift */; };
 		0E91B6B92A8E78AB00E7BEE7 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E91B6B82A8E78AB00E7BEE7 /* DisplayView.swift */; };
 		0E91B6BB2A8E806300E7BEE7 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E91B6BA2A8E806300E7BEE7 /* CustomCalendarView.swift */; };
 		0EF55C622A8E3CE3009B553C /* MoonDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF55C612A8E3CE3009B553C /* MoonDiaryApp.swift */; };
@@ -34,14 +32,12 @@
 /* Begin PBXFileReference section */
 		0E4533DB2A972C4300661D8B /* YearMonthPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthPicker.swift; sourceTree = "<group>"; };
 		0E4533E22A97478000661D8B /* CustomCalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarHeader.swift; sourceTree = "<group>"; };
-		0E4533E62A9747CC00661D8B /* MoonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonTest.swift; sourceTree = "<group>"; };
 		0E4534042A9761B500661D8B /* MoonTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonTestView.swift; sourceTree = "<group>"; };
 		0E4534242A9B88F800661D8B /* MoonDragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonDragView.swift; sourceTree = "<group>"; };
 		0E4534262A9B890700661D8B /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
 		0E4534282A9B893800661D8B /* LunarPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarPhaseView.swift; sourceTree = "<group>"; };
 		0E4534302A9B9E2C00661D8B /* MoonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonData.swift; sourceTree = "<group>"; };
 		0E4534322A9BAA0800661D8B /* MoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonView.swift; sourceTree = "<group>"; };
-		0E91B6B62A8E778300E7BEE7 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		0E91B6B82A8E78AB00E7BEE7 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		0E91B6BA2A8E806300E7BEE7 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
 		0EF55C5E2A8E3CE3009B553C /* MoonDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,8 +126,6 @@
 				0EF55C6F2A8E3D55009B553C /* View */,
 				0EF55C652A8E3CE4009B553C /* Assets.xcassets */,
 				0EF55C672A8E3CE4009B553C /* Preview Content */,
-				0E91B6B62A8E778300E7BEE7 /* test.swift */,
-				0E4533E62A9747CC00661D8B /* MoonTest.swift */,
 				0E4534042A9761B500661D8B /* MoonTestView.swift */,
 			);
 			path = MoonDiary;
@@ -265,10 +259,8 @@
 				0E4533DC2A972C4300661D8B /* YearMonthPicker.swift in Sources */,
 				0E4534272A9B890700661D8B /* DragState.swift in Sources */,
 				0E4534332A9BAA0800661D8B /* MoonView.swift in Sources */,
-				0E91B6B72A8E778300E7BEE7 /* test.swift in Sources */,
 				0EF55C792A8E41E8009B553C /* TrackerView.swift in Sources */,
 				0EF55C622A8E3CE3009B553C /* MoonDiaryApp.swift in Sources */,
-				0E4533E72A9747CC00661D8B /* MoonTest.swift in Sources */,
 				0E91B6BB2A8E806300E7BEE7 /* CustomCalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

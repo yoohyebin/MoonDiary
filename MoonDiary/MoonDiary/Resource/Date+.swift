@@ -59,4 +59,10 @@ extension Date {
         formatter.dateFormat = "MM"
         return formatter.string(from: self)
     }
+    
+    func withTimeZone(_ timeZone: TimeZone) -> Date {
+        let seconds = TimeZone.current.secondsFromGMT(for: self)
+        let newDate = addingTimeInterval(TimeInterval(seconds))
+        return newDate
+    }
 }

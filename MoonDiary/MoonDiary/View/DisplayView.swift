@@ -79,10 +79,10 @@ struct DisplayView: View {
             
             Button(
                 action: {
+                    isPlaying ? stopPlayback() : startPlayback()
                     isPlaying.toggle()
-                    isPlaying ? startPlayback() : stopPlayback()
                 }, label: {
-                    Image(systemName: "play.fill")
+                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                         .padding(20)
                         .foregroundColor(.labelColor)
                 }

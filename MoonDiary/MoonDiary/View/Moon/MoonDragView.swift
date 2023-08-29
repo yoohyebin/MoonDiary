@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoonDragView: View {
     @Binding var dragState: DragState
-    @State private var lastProgress: CGFloat = 0.0 // Store the last progress value
+    @State private var lastProgress: CGFloat = 0.0
     
     var body: some View {
         ZStack {
@@ -19,7 +19,7 @@ struct MoonDragView: View {
                 .opacity(dragState.progress+0.2)
             
             LunarPhaseView(phase: Double(dragState.progress))
-                .frame(maxWidth: 240, maxHeight: 240)
+                .frame(maxWidth: 242, maxHeight: 242)
         }
         .padding(16)
         .gesture(
@@ -38,7 +38,7 @@ struct MoonDragView: View {
         let dragDistance = value.translation.width
         let velocity = value.predictedEndTranslation.width / value.time.timeIntervalSince(value.time)
         
-        let progress = max(min(lastProgress + dragDistance / width, 1.0), 0.0) // Add dragDistance instead of subtracting
+        let progress = max(min(lastProgress + dragDistance / width, 1.0), 0.0)
         dragState.progress = progress
         dragState.isDragging = true
         

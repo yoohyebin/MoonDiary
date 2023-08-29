@@ -23,17 +23,19 @@ class MoonDataManager{
         newMoonData.date = data.date
         newMoonData.phase = data.phase
         
-        do {
-            try! realm.write {
-                realm.add(newMoonData)
-            }
-        } catch {
-            print("Error add new realm \(error)")
+        try! realm.write {
+            realm.add(newMoonData)
         }
-        
     }
     
-    //TODO: update
+    func updateMoon(_ data: (date: Date, phase: Double)) {
+        let predicate = NSPredicate(format: "date = %@", data.date as CVarArg)
+        if let update = realm.objects(MoonData.self).filter(predicate).first {
+            try! realm.write {
+                update.phase = data.phase
+            }
+        }
+    }
     
     func readMoonData(_ yearMonth: String) -> [Date: Double]{
         let predicate = NSPredicate(format: "yearMonth = %@", yearMonth)

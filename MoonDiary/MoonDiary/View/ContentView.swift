@@ -16,7 +16,11 @@ struct ContentView: View {
     @State private var currentMode = false
     @State private var currentPage: pages = .tracker
     @State private var moveToDisplayView = false
-    @State private var selectedDate = Date()
+    @State private var selectedDate: Date = {
+        var calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: Date())
+        return calendar.date(from: components)!.withTimeZone(TimeZone.current)
+    }()
     @State private var showPopupView = false
     @State private var currentDate = Date()
     @State private var moonsData = [Date: Double]()
@@ -69,7 +73,7 @@ struct ContentView: View {
                         Button(
                             action: {
                                 if currentPage != .tracker {
-                                    selectedDate = Date()
+                                    selectCurrentDate()
                                 }
                                 currentPage = .tracker
                             },
@@ -130,6 +134,12 @@ struct ContentView: View {
             .padding()
             .background(Image(currentMode ? "Dark" : "Light").resizable().ignoresSafeArea())
         }
+    }
+    
+    func selectCurrentDate() {
+        var calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: Date())
+        selectedDate = calendar.date(from: components)!.withTimeZone(TimeZone.current)
     }
 }
 

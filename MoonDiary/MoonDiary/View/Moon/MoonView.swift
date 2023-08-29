@@ -18,6 +18,7 @@ struct MoonView: View {
                 .opacity(phase+0.2)
             
             LunarPhaseView(phase:phase)
+                .padding(-2)
                 .frame(maxWidth: 240, maxHeight: 240)
         }
     }

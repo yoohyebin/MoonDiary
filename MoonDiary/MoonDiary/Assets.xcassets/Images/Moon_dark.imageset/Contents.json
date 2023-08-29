@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "pngegg.png",
+      "filename" : "Moon_dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Moon_dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Moon_dark@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

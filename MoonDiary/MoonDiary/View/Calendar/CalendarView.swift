@@ -40,7 +40,6 @@ struct CalendarView: View {
                 .onChange(of: selectedDate) { _ in
                     currentPage = .tracker
                 }
-               
             
             Spacer(minLength: 10)
             
@@ -59,6 +58,7 @@ struct CalendarView: View {
                     .foregroundColor(.labelColor)
                 }
             )
+            .opacity(moonsData.isEmpty ? 0.3 : 1)
             .disabled(moonsData.isEmpty)
             .background(currentMode ? Color.fillsColorDark : Color.fillsColor)
             .cornerRadius(10)

@@ -37,6 +37,7 @@ struct TrackerView: View {
                 Button(
                     action: {
                         date = Calendar.current.date(byAdding: .day, value: -1, to: date)!
+                        dragState.progress = 0.0
                     },
                     label: {
                         Image(systemName: "chevron.left")
@@ -45,7 +46,6 @@ struct TrackerView: View {
                 )
                 
                 Spacer(minLength: 0)
-               
                 
                 MoonDragView(dragState: $dragState)
                     .onAppear(){
@@ -57,6 +57,7 @@ struct TrackerView: View {
                 Button(
                     action: {
                         date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+                        dragState.progress = 0.0
                     },
                     label: {
                         Image(systemName: "chevron.right")

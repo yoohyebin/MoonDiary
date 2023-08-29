@@ -15,7 +15,11 @@ struct CustomCalendarView: View {
     @Binding var showPopupView: Bool
     @Binding var currnetMode: Bool
     
-    private let calendar = Calendar.current
+    private var calendar: Calendar {
+        var calendar = Calendar.current
+//        calendar.timeZone = TimeZone.autoupdatingCurrent
+        return calendar
+    }
     
     private var currentMonthYear: String  {
         currentDate.dateToMonthYear()
@@ -32,6 +36,14 @@ struct CustomCalendarView: View {
     private var numberOfWeeks: Int {
         return calendar.range(of: .weekOfMonth, in: .month, for: firstDayOfMonth)!.count
     }
+    
+    private var cellHeight: CGFloat {
+        let totalHeight: CGFloat = 390
+        let verticalSpacing: CGFloat = numberOfWeeks == 5 ? 16 : 20
+
+        let availableHeight = totalHeight - (CGFloat(numberOfWeeks - 1) * verticalSpacing)
+        return availableHeight / CGFloat(numberOfWeeks)
+    }
         
     private var weekdays: [String] {
         let formatter = DateFormatter()
@@ -43,6 +55,7 @@ struct CustomCalendarView: View {
         ZStack {
             VStack {
                 CustomCalendarHeader(currentDate: $currentDate, isShowPicker: $showPopupView)
+                    .padding(.bottom, 12)
                 
                 HStack {
                     ForEach(weekdays, id: \.self) { weekday in
@@ -51,13 +64,13 @@ struct CustomCalendarView: View {
                             .font(.system(size: 13, weight: .semibold))
                     }
                 }
+                .padding(.bottom, 4)
                 
                 VStack {
                     ForEach(0..<numberOfWeeks, id: \.self) { week in
                         HStack {
-                            ForEach(0..<7, id: \.self) { day in
+                            ForEach(1...7, id: \.self) { day in
                                 let date = dayText(forWeek: week, day: day)
-                                let maxButtonHeight = 390 / CGFloat(numberOfWeeks) - 16
                                 
                                 if calendar.isDate(date, equalTo: firstDayOfMonth, toGranularity: .month) {
                                     Button(
@@ -67,8 +80,8 @@ struct CustomCalendarView: View {
                                             CalendarDateButtonView(
                                                 date: date,
                                                 phase: moonsData[date],
-                                                maxHeight: maxButtonHeight,
-                                                currentMode: currnetMode
+                                                currentMode: currnetMode,
+                                                cellHeight: cellHeight
                                             )
                                                 .padding(.bottom, 12)
                                         }
@@ -76,7 +89,7 @@ struct CustomCalendarView: View {
                                     .disabled(showPopupView)
                                 } else {
                                     Spacer()
-                                        .frame(maxWidth: 50, maxHeight: maxButtonHeight)
+                                        .frame(maxWidth: 50, maxHeight: 20)
                                         .padding(.horizontal, 4)
                                 }
                             }
@@ -93,15 +106,15 @@ struct CustomCalendarView: View {
         var dateComponents = calendar.dateComponents([.year, .month, .day], from: firstDayOfMonth)
         dateComponents.day! += ((week * 7) + day - calendar.component(.weekday, from: firstDayOfMonth) + 1)
 
-        return calendar.date(from: dateComponents)!
+        return calendar.date(from: dateComponents)!.withTimeZone(TimeZone.current)
     }
 }
 
 struct CalendarDateButtonView: View {
     let date: Date
     let phase: Double?
-    let maxHeight: CGFloat
     let currentMode: Bool
+    let cellHeight: CGFloat
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
@@ -134,5 +147,6 @@ struct CalendarDateButtonView: View {
         }
         .foregroundColor(.labelColor)
         .frame(maxWidth: .infinity ,maxHeight: .infinity)
+        .frame(height: cellHeight)
     }
 }

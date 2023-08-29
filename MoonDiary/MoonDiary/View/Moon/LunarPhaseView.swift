@@ -38,7 +38,7 @@ internal final class LunarPhaseViewImpl: UIView {
         let diameter = Double(rect.width)
         let radius = Int(diameter / 2)
         
-        if let overlayImage = UIImage(named: "pngegg") {
+        if let overlayImage = UIImage(named: "Moon_dark") {
             let renderer = UIGraphicsImageRenderer(size: rect.size)
             let maskedImage = renderer.image { context in
                 let path = UIBezierPath()
@@ -55,8 +55,6 @@ internal final class LunarPhaseViewImpl: UIView {
                         Xpos2 = Double(Xpos) - (2.0 * phase * Double(Rpos)) + Double(Rpos)
                     }
 
-                    print("\(phase) \(Xpos1) \(Xpos2)")
-                    
                     let pW1 = CGPoint(x: CGFloat(Xpos1 + Double(radius)), y: CGFloat(Double(radius) - Double(Ypos)))
                     let pW2 = CGPoint(x: CGFloat(Xpos2 + Double(radius)), y: CGFloat(Double(radius) - Double(Ypos)))
                     let pW3 = CGPoint(x: CGFloat(Xpos1 + Double(radius)), y: CGFloat(Double(radius) + Double(Ypos)))
