@@ -12,7 +12,7 @@ struct MoonView: View {
     
     var body: some View {
         ZStack {
-            Image("Moon")
+            Image("Moon_dark")
                 .resizable()
                 .frame(maxWidth: 240, maxHeight: 240)
                 .opacity(phase+0.2)

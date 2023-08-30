@@ -13,10 +13,10 @@ struct MoonDragView: View {
     
     var body: some View {
         ZStack {
-            Image("Moon")
+            Image("Moon_dark")
                 .resizable()
                 .frame(maxWidth: 240, maxHeight: 240)
-                .opacity(dragState.progress+0.2)
+                .opacity(1.5-(dragState.progress))
             
             LunarPhaseView(phase: Double(dragState.progress))
                 .frame(maxWidth: 242, maxHeight: 242)
@@ -34,7 +34,8 @@ struct MoonDragView: View {
     }
     
     private func handleDraggingChanged(value: DragGesture.Value) {
-        let width = UIScreen.main.bounds.width
+//        let width = UIScreen.main.bounds.width
+        let width = 240.0
         let dragDistance = value.translation.width
         let velocity = value.predictedEndTranslation.width / value.time.timeIntervalSince(value.time)
         
