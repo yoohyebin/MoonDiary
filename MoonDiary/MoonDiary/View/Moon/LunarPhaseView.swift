@@ -38,6 +38,7 @@ internal final class LunarPhaseViewImpl: UIView {
         let diameter = Double(rect.width)
         let radius = Int(diameter / 2)
         
+        //FIXME: image -> enum
         if let overlayImage = UIImage(named: "Moon") {
             let renderer = UIGraphicsImageRenderer(size: rect.size)
             let maskedImage = renderer.image { context in

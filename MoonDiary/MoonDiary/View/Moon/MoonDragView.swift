@@ -13,12 +13,15 @@ struct MoonDragView: View {
     
     var body: some View {
         ZStack {
+            //FIXME: image -> enum
             Image("Moon_dark")
                 .resizable()
+                //FIXME: padding으로
                 .frame(maxWidth: 240, maxHeight: 240)
                 .opacity(1.5-(dragState.progress))
             
             LunarPhaseView(phase: Double(dragState.progress))
+                //FIXME: padding으로
                 .frame(maxWidth: 242, maxHeight: 242)
         }
         .padding(16)
@@ -34,6 +37,7 @@ struct MoonDragView: View {
     }
     
     private func handleDraggingChanged(value: DragGesture.Value) {
+        //FIXME: UIScreen.main.bounds.width - padding으로
 //        let width = UIScreen.main.bounds.width
         let width = 240.0
         let dragDistance = value.translation.width
