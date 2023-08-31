@@ -25,7 +25,7 @@ struct DisplayView: View {
                         dismiss()
                     }, label: {
                         HStack {
-                            Image(systemName: "chevron.left")
+                            Image(systemName: Images.chevronLeft)
                                 .font(.system(size: 17, weight: .semibold))
                             Text("Back")
                         }
@@ -46,7 +46,7 @@ struct DisplayView: View {
                         if current > 0 {current -= 1}
                     },
                     label: {
-                        Image(systemName: "chevron.left")
+                        Image(systemName: Images.chevronLeft)
                             .foregroundColor(.labelColor)
                     }
                 )
@@ -62,7 +62,7 @@ struct DisplayView: View {
                         if current < displayData.count-1 {current += 1}
                     },
                     label: {
-                        Image(systemName: "chevron.right")
+                        Image(systemName: Images.chevronRight)
                             .foregroundColor(.labelColor)
                     }
                 )
@@ -82,7 +82,7 @@ struct DisplayView: View {
                     isPlaying ? stopPlayback() : startPlayback()
                     isPlaying.toggle()
                 }, label: {
-                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                    Image(systemName: isPlaying ? Images.pause : Images.play)
                         .padding(20)
                         .foregroundColor(.labelColor)
                 }
@@ -93,7 +93,7 @@ struct DisplayView: View {
         }
         .ignoresSafeArea()
         .padding()
-        .background(Image(currentMode ? "Dark" : "Light").resizable().ignoresSafeArea())
+        .background(Image(currentMode ? Images.darkBackground : Images.lightBackground).resizable().ignoresSafeArea())
         .onAppear() {
             playbackTimer?.invalidate()
         }

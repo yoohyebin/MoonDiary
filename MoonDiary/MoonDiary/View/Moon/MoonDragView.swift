@@ -13,8 +13,7 @@ struct MoonDragView: View {
     
     var body: some View {
         ZStack {
-            //FIXME: image -> enum
-            Image("Moon_dark")
+            Image(Images.moonDark)
                 .resizable()
                 //FIXME: padding으로
                 .frame(maxWidth: 240, maxHeight: 240)

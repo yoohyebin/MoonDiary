@@ -72,14 +72,12 @@ struct ContentView: View {
                     HStack {
                         Button(
                             action: {
-                                if currentPage != .tracker {
-                                    selectCurrentDate()
-                                }
+                                selectCurrentDate()
                                 currentPage = .tracker
                             },
                             label: {
                                 VStack {
-                                    Image(systemName: "moon.fill")
+                                    Image(systemName: Images.systemMoon)
                                         .padding(.bottom,7)
                                         .font(.system(size: 20))
                                     Text("Tracker")
@@ -94,10 +92,13 @@ struct ContentView: View {
                         Spacer(minLength: 0)
                         
                         Button(
-                            action: {currentPage = .calendar},
+                            action: {
+                                changeCurrentDate()
+                                currentPage = .calendar
+                            },
                             label: {
                                 VStack {
-                                    Image(systemName: "calendar")
+                                    Image(systemName: Images.systemCalendar)
                                         .padding(.bottom,7)
                                         .font(.system(size: 20))
                                     Text("Calendar")
@@ -132,14 +133,20 @@ struct ContentView: View {
             }
             .ignoresSafeArea()
             .padding()
-            .background(Image(currentMode ? "Dark" : "Light").resizable().ignoresSafeArea())
+            .background(Image(currentMode ? Images.darkBackground : Images.lightBackground).resizable().ignoresSafeArea())
         }
     }
     
     func selectCurrentDate() {
-        var calendar = Calendar.current
+        let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: Date())
         selectedDate = calendar.date(from: components)!.withTimeZone(TimeZone.current)
+    }
+    
+    func changeCurrentDate() {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: Date())
+        currentDate = calendar.date(from: components)!.withTimeZone(TimeZone.current)
     }
 }
 

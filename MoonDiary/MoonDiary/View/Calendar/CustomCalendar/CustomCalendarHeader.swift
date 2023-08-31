@@ -45,7 +45,7 @@ struct CustomCalendarHeader: View {
                 }, label: {
                     Text(currentDate.dateToMonthYear())
                         .font(.system(size: 17, weight: .semibold))
-                    Image(systemName: isShowPicker ? "chevron.down" : "chevron.right")
+                    Image(systemName: isShowPicker ? Images.chevronDown : Images.chevronRight)
                         .font(.system(size: 17, weight: .semibold))
                 }
             )
@@ -56,7 +56,7 @@ struct CustomCalendarHeader: View {
                 action: {
                     currentDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate)!
                 }, label: {
-                    Image(systemName: "chevron.left")
+                    Image(systemName: Images.chevronLeft)
                 }
             )
             .padding(.trailing, 28)
@@ -65,7 +65,7 @@ struct CustomCalendarHeader: View {
                 action: {
                     currentDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)!
                 }, label: {
-                    Image(systemName: "chevron.right")
+                    Image(systemName: Images.chevronRight)
                 }
             )
             .padding(.trailing, 12)
