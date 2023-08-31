@@ -37,10 +37,10 @@ struct TrackerView: View {
                 Button(
                     action: {
                         date = Calendar.current.date(byAdding: .day, value: -1, to: date)!
-                        dragState.progress = 0.0
+                        dragState.progress = moonsData[date] ?? 0.0
                     },
                     label: {
-                        Image(systemName: "chevron.left")
+                        Image(systemName: Images.chevronLeft)
                             .foregroundColor(.labelColor)
                     }
                 )
@@ -48,8 +48,11 @@ struct TrackerView: View {
                 Spacer(minLength: 0)
                 
                 MoonDragView(dragState: $dragState)
+                    .onChange(of: date) { newValue in
+                        dragState.progress = moonsData[newValue] ?? 0.0
+                    }
                     .onAppear(){
-                        dragState.progress = moonsData[date] == nil ? 0.0 : moonsData[date]!
+                        dragState.progress = moonsData[date] ?? 0.0
                     }
                 
                 Spacer(minLength: 0)
@@ -57,10 +60,10 @@ struct TrackerView: View {
                 Button(
                     action: {
                         date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-                        dragState.progress = 0.0
+                        dragState.progress = moonsData[date] ?? 0.0
                     },
                     label: {
-                        Image(systemName: "chevron.right")
+                        Image(systemName: Images.chevronRight)
                             .foregroundColor(.labelColor)
                     }
                 )
@@ -70,11 +73,16 @@ struct TrackerView: View {
             
             Button(
                 action: {
-                    MoonDataManager().addNewMoon((date: date, phase: Double(dragState.progress)))
+                    if moonsData[date] == nil {
+                        MoonDataManager().addNewMoon((date: date, phase: Double(dragState.progress)))
+                        
+                    }else {
+                        MoonDataManager().updateMoon((date: date, phase: Double(dragState.progress)))
+                    }
                     moonsData[date] = Double(dragState.progress)
                 }, label: {
                     HStack {
-                        Image(systemName: "square.and.arrow.down.fill")
+                        Image(systemName: Images.save)
                             .font(.system(size: 17))
                         Text("Save")
                             .font(.system(size: 12))

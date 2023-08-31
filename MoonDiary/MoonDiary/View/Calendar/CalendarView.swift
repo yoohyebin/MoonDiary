@@ -51,7 +51,7 @@ struct CalendarView: View {
                     moveToDisplayView = true
                 }, label: {
                     HStack {
-                        Image(systemName: "binoculars.fill")
+                        Image(systemName: Images.view)
                             .font(.system(size: 17))
                         Text("View")
                             .font(.system(size: 12))
