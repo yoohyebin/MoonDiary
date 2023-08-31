@@ -21,4 +21,5 @@ enum Images {
     static let pause = "pause.fill"
     static let lightBackground = "Light"
     static let darkBackground = "Dark"
+    
 }
