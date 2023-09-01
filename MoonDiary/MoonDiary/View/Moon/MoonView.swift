@@ -9,25 +9,23 @@ import SwiftUI
 
 struct MoonView: View {
     let phase: Double
+    let size: CGSize
     
     var body: some View {
         ZStack {
-            Image(Images.moonDark)
+            Image(Images.moon)
                 .resizable()
-            //FIXME: padding으로
                 .frame(maxWidth: 240, maxHeight: 240)
-                .opacity(phase+0.2)
             
-            LunarPhaseView(phase:phase)
-                .padding(-2)
-            //FIXME: padding으로
-                .frame(maxWidth: 240, maxHeight: 240)
+            MoonActivityIndicatorView(frameSize: size, phase: phase)
+                .frame(maxWidth: size.width, maxHeight: size.height)
+                .opacity(phase+0.5)
         }
     }
 }
 
 struct MoonView_Previews: PreviewProvider {
     static var previews: some View {
-        MoonView(phase: 0.2)
+        MoonView(phase: 0.9, size: CGSize(width: 240, height: 240))
     }
 }

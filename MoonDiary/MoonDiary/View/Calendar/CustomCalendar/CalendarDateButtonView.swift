@@ -35,7 +35,7 @@ struct CalendarDateButtonView: View {
                 }
             }
             if let phase = phase {
-                MoonView(phase: phase)
+                MoonView(phase: phase, size: CGSize(width: cellHeight/2, height: cellHeight/2))
                     .frame(width: 23, height: 23)
             }else {
                 Spacer()
