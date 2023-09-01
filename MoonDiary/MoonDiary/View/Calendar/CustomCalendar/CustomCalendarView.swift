@@ -16,8 +16,10 @@ struct CustomCalendarView: View {
     @Binding var showTrackerView: Bool
     @Binding var currnetMode: Bool
     
+    let height: CGFloat
+    
     private var calendar: Calendar {
-        var calendar = Calendar.current
+        let calendar = Calendar.current
         return calendar
     }
     
@@ -38,7 +40,7 @@ struct CustomCalendarView: View {
     }
     
     private var cellHeight: CGFloat {
-        let totalHeight: CGFloat = 390
+        let totalHeight: CGFloat = height
         let verticalSpacing: CGFloat = numberOfWeeks == 5 ? 16 : 20
 
         let availableHeight = totalHeight - (CGFloat(numberOfWeeks - 1) * verticalSpacing)
@@ -84,7 +86,7 @@ struct CustomCalendarView: View {
                                                 currentMode: currnetMode,
                                                 cellHeight: cellHeight
                                             )
-                                                .padding(.bottom, 12)
+                                            .padding(.bottom, 12)
                                         }
                                     )
                                     .disabled(showPopupView)

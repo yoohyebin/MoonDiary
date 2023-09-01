@@ -53,7 +53,7 @@ struct DisplayView: View {
                 
                 Spacer(minLength: 0)
                 
-                MoonView(phase: displayData[current].phase)
+                MoonView(phase: displayData[current].phase, size: CGSize(width: 240, height: 240))
                 
                 Spacer(minLength: 0)
                 
