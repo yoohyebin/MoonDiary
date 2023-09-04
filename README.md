@@ -1,2 +1,2 @@
 # MoonDiary
-[Privacy Policy](DevTillDie.html)
+[Privacy Policy](PrivacyPolicy.md)
