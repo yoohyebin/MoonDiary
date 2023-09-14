@@ -27,7 +27,8 @@ struct DisplayView: View {
                         HStack {
                             Image(systemName: Images.chevronLeft)
                                 .font(.system(size: 17, weight: .semibold))
-                            Text("Back")
+                            
+                            Text(Texts.back)
                         }
                         .foregroundColor(.labelColor)
                     }

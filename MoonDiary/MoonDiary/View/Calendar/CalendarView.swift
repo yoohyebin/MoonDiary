@@ -24,7 +24,7 @@ struct CalendarView: View {
         GeometryReader { prox in
             VStack {
                 HStack {
-                    Text("Calendar")
+                    Text(Texts.calendar)
                         .font(.system(.largeTitle, weight: .bold))
                         .foregroundColor(.labelColor)
                     Spacer(minLength: 0)
@@ -56,7 +56,8 @@ struct CalendarView: View {
                         HStack {
                             Image(systemName: Images.view)
                                 .font(.system(size: 17))
-                            Text("View")
+                            
+                            Text(Texts.view)
                                 .font(.system(size: 12))
                         }
                         .padding(.vertical, 14)

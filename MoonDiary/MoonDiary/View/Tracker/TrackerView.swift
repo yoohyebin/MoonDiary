@@ -12,6 +12,9 @@ struct TrackerView: View {
     @Binding var date: Date
     @Binding var currentMode: Bool
     @Binding var moonsData: [Date: Double]
+    
+    let initialValue = 0.4
+    
     var currentDate: (monthDay: String, day: String){
         let stringDate = date.dateToString().split(separator: " ").map{String($0)}
         return(stringDate[0...1].joined(separator: " "), stringDate[2])
@@ -37,7 +40,7 @@ struct TrackerView: View {
                 Button(
                     action: {
                         date = Calendar.current.date(byAdding: .day, value: -1, to: date)!
-                        dragState.progress = moonsData[date] ?? 0.0
+                        dragState.progress = moonsData[date] ?? initialValue
                     },
                     label: {
                         Image(systemName: Images.chevronLeft)
@@ -49,10 +52,10 @@ struct TrackerView: View {
                 
                 MoonDragView(dragState: $dragState)
                     .onChange(of: date) { newValue in
-                        dragState.progress = moonsData[newValue] ?? 0.0
+                        dragState.progress = moonsData[newValue] ?? initialValue
                     }
                     .onAppear(){
-                        dragState.progress = moonsData[date] ?? 0.0
+                        dragState.progress = moonsData[date] ?? initialValue
                     }
                 
                 Spacer(minLength: 0)
@@ -60,7 +63,7 @@ struct TrackerView: View {
                 Button(
                     action: {
                         date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-                        dragState.progress = moonsData[date] ?? 0.0
+                        dragState.progress = moonsData[date] ?? initialValue
                     },
                     label: {
                         Image(systemName: Images.chevronRight)
@@ -84,7 +87,7 @@ struct TrackerView: View {
                     HStack {
                         Image(systemName: Images.save)
                             .font(.system(size: 17))
-                        Text("Save")
+                        Text(Texts.save)
                             .font(.system(size: 12))
                     }
                     .foregroundColor(.labelColor)
