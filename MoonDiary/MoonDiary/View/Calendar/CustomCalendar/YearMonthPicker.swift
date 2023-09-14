@@ -24,7 +24,7 @@ struct YearMonthPicker: View {
     var body: some View {
         ZStack {
             HStack {
-                Picker("Month", selection: $selectedMonth) {
+                Picker(Texts.month, selection: $selectedMonth) {
                     ForEach(1..<13, id: \.self) { month in
                         Text(monthEn[month-1]).tag(month)
                     }
@@ -33,7 +33,7 @@ struct YearMonthPicker: View {
                 .accessibilityHidden(true)
 
                 
-                Picker("Year", selection: $selectedYear) {
+                Picker(Texts.year, selection: $selectedYear) {
                     ForEach(1900..<2100, id: \.self) { year in
                         Text(String(year)).tag(year)
                     }

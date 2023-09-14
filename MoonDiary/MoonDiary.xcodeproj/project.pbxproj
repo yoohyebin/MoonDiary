@@ -22,6 +22,7 @@
 		0E4534452AA1FEA400661D8B /* MoonActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4534442AA1FEA400661D8B /* MoonActivityIndicatorView.swift */; };
 		0E91B6B92A8E78AB00E7BEE7 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E91B6B82A8E78AB00E7BEE7 /* DisplayView.swift */; };
 		0E91B6BB2A8E806300E7BEE7 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E91B6BA2A8E806300E7BEE7 /* CustomCalendarView.swift */; };
+		0E9695132AB363DA0087BBE3 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9695122AB363DA0087BBE3 /* Texts.swift */; };
 		0EF55C622A8E3CE3009B553C /* MoonDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF55C612A8E3CE3009B553C /* MoonDiaryApp.swift */; };
 		0EF55C642A8E3CE3009B553C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF55C632A8E3CE3009B553C /* ContentView.swift */; };
 		0EF55C662A8E3CE4009B553C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF55C652A8E3CE4009B553C /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		0E4534442AA1FEA400661D8B /* MoonActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonActivityIndicatorView.swift; sourceTree = "<group>"; };
 		0E91B6B82A8E78AB00E7BEE7 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		0E91B6BA2A8E806300E7BEE7 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
+		0E9695122AB363DA0087BBE3 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		0EF55C5E2A8E3CE3009B553C /* MoonDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF55C612A8E3CE3009B553C /* MoonDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonDiaryApp.swift; sourceTree = "<group>"; };
 		0EF55C632A8E3CE3009B553C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				0E4534262A9B890700661D8B /* DragState.swift */,
 				0E4534302A9B9E2C00661D8B /* MoonData.swift */,
 				0E45343E2AA0853900661D8B /* Images.swift */,
+				0E9695122AB363DA0087BBE3 /* Texts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				0E4534332A9BAA0800661D8B /* MoonView.swift in Sources */,
 				0EF55C792A8E41E8009B553C /* TrackerView.swift in Sources */,
 				0EF55C622A8E3CE3009B553C /* MoonDiaryApp.swift in Sources */,
+				0E9695132AB363DA0087BBE3 /* Texts.swift in Sources */,
 				0E91B6BB2A8E806300E7BEE7 /* CustomCalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

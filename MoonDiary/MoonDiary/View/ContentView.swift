@@ -73,58 +73,12 @@ struct ContentView: View {
                         .padding(.bottom, 30)
                     }
                     
-                    // FIXME: extension + @ViewBuilder
-                    // 익스텐션과 뷰빌더를 사용하여 코드를 정리해보는 것은 어떨까요?
-                    // 뷰 내부 코드가 간결해저 구조를 확인하기 좋습니다!
                     HStack {
-                        Button(
-                            action: {
-                                selectCurrentDate()
-                                currentPage = .tracker
-                            },
-                            label: {
-                                VStack {
-                                    Image(systemName: Images.systemMoon)
-                                        .padding(.bottom,7)
-                                    // FIXME: 폰트 익스텐션 만들기
-                                    // 폰트 시스템을 다시 만들까 고민하고 있습니다.
-                                    // 시스템 구축 후 피그마에 공유해 드리겠습니다/
-                                    // 참고해서 작업 진행해 주세요.
-                                        .font(.system(size: 20))
-                                    // FIXME: enum
-                                    // TabBar와 버튼에 해당하는 텍스트/심볼은 따로 enum으로 관리하는 게 어떨까요?
-                                    // 뷰 안에 텍스트로 처리하는 것은 휴먼에러에 취약하다는 단점이 있습니다.
-                                    Text("Tracker")
-                                        .font(.system(size: 10))
-                                }
-                                .padding(.horizontal, 42)
-                            }
-                        )
-                        // FIXME: 삼항연산자 -> 함수
-                        .opacity(currentPage == .tracker ? 1 : 0.2)
-                        .foregroundColor(.labelColor)
+                        trackerButton()
                         
                         Spacer(minLength: 0)
                         
-                        Button(
-                            action: {
-                                changeCurrentDate()
-                                currentPage = .calendar
-                            },
-                            label: {
-                                VStack {
-                                    Image(systemName: Images.systemCalendar)
-                                        .padding(.bottom,7)
-                                        .font(.system(size: 20))
-                                    // FIXME: enum
-                                    Text("Calendar")
-                                        .font(.system(size: 10))
-                                }
-                                .padding(.horizontal, 42)
-                            }
-                        )
-                        .opacity(currentPage == .calendar ? 1 : 0.4)
-                        .foregroundColor(.labelColor)
+                        calendarButton()
                     }
                     
                     NavigationLink (
@@ -164,6 +118,59 @@ struct ContentView: View {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: Date())
         currentDate = calendar.date(from: components)!.withTimeZone(TimeZone.current)
+    }
+}
+
+extension ContentView {
+    @ViewBuilder
+    func trackerButton() -> some View {
+        Button(
+            action: {
+                selectCurrentDate()
+                currentPage = .tracker
+            },
+            label: {
+                VStack {
+                    Image(systemName: Images.systemMoon)
+                        .padding(.bottom,7)
+                    // FIXME: 폰트 익스텐션 만들기
+                    // 폰트 시스템을 다시 만들까 고민하고 있습니다.
+                    // 시스템 구축 후 피그마에 공유해 드리겠습니다/
+                    // 참고해서 작업 진행해 주세요.
+                        .font(.system(size: 20))
+            
+                    Text(Texts.tracker)
+                        .font(.system(size: 10))
+                }
+                .padding(.horizontal, 42)
+            }
+        )
+        // FIXME: 삼항연산자 -> 함수
+        .opacity(currentPage == .tracker ? 1 : 0.2)
+        .foregroundColor(.labelColor)
+    }
+    
+    @ViewBuilder
+    func calendarButton() -> some View {
+        Button(
+            action: {
+                changeCurrentDate()
+                currentPage = .calendar
+            },
+            label: {
+                VStack {
+                    Image(systemName: Images.systemCalendar)
+                        .padding(.bottom,7)
+                        .font(.system(size: 20))
+                    
+                    Text(Texts.calendar)
+                        .font(.system(size: 10))
+                }
+                .padding(.horizontal, 42)
+            }
+        )
+        .opacity(currentPage == .calendar ? 1 : 0.4)
+        .foregroundColor(.labelColor)
     }
 }
 
